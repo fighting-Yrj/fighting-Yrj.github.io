@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>AQS | 小小只的博客</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" href="/favicon.ico">
+    <script language="javascript" type="text/javascript" src="/js/MouseClickEffect.js">
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?b0aae218897fa9d8a9f76e9a77e0b3c6";
+          var s = document.getElementsByTagName("script")[0]; 
+          s.parentNode.insertBefore(hm, s);
+        })();
+      </script>
+    <meta name="description" content="vuepress-blog">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    
+    <link rel="preload" href="/assets/css/0.styles.bd9d9870.css" as="style"><link rel="preload" href="/assets/js/app.cc8e6958.js" as="script"><link rel="preload" href="/assets/js/3.ff5b5364.js" as="script"><link rel="preload" href="/assets/js/1.5d50350e.js" as="script"><link rel="preload" href="/assets/js/38.6ce04fe4.js" as="script"><link rel="prefetch" href="/assets/js/10.4f4d04d4.js"><link rel="prefetch" href="/assets/js/11.95d13980.js"><link rel="prefetch" href="/assets/js/12.86b438f7.js"><link rel="prefetch" href="/assets/js/13.80022b42.js"><link rel="prefetch" href="/assets/js/14.4454afae.js"><link rel="prefetch" href="/assets/js/15.e5619e78.js"><link rel="prefetch" href="/assets/js/16.848622fb.js"><link rel="prefetch" href="/assets/js/17.9c4e8bec.js"><link rel="prefetch" href="/assets/js/18.d27a2564.js"><link rel="prefetch" href="/assets/js/19.66f903c2.js"><link rel="prefetch" href="/assets/js/20.a173e37e.js"><link rel="prefetch" href="/assets/js/21.e43cc6d0.js"><link rel="prefetch" href="/assets/js/22.3d6d1df0.js"><link rel="prefetch" href="/assets/js/23.a1e79dc3.js"><link rel="prefetch" href="/assets/js/24.791d9be1.js"><link rel="prefetch" href="/assets/js/25.e96cc46c.js"><link rel="prefetch" href="/assets/js/26.c1dd7331.js"><link rel="prefetch" href="/assets/js/27.45f656e4.js"><link rel="prefetch" href="/assets/js/28.41db4d25.js"><link rel="prefetch" href="/assets/js/29.d1d24a55.js"><link rel="prefetch" href="/assets/js/30.eb7c47ce.js"><link rel="prefetch" href="/assets/js/31.43beac7e.js"><link rel="prefetch" href="/assets/js/32.b634807b.js"><link rel="prefetch" href="/assets/js/33.bb2d16e1.js"><link rel="prefetch" href="/assets/js/34.390440f1.js"><link rel="prefetch" href="/assets/js/35.7c643fda.js"><link rel="prefetch" href="/assets/js/36.371b8934.js"><link rel="prefetch" href="/assets/js/37.d88d19f7.js"><link rel="prefetch" href="/assets/js/39.9800fea4.js"><link rel="prefetch" href="/assets/js/4.42094546.js"><link rel="prefetch" href="/assets/js/40.ff12a0d9.js"><link rel="prefetch" href="/assets/js/41.46c1d6cb.js"><link rel="prefetch" href="/assets/js/42.02a0ac0f.js"><link rel="prefetch" href="/assets/js/43.4a2a7b8c.js"><link rel="prefetch" href="/assets/js/44.c08d3779.js"><link rel="prefetch" href="/assets/js/45.90cac63f.js"><link rel="prefetch" href="/assets/js/46.bf17dbb5.js"><link rel="prefetch" href="/assets/js/47.70741e17.js"><link rel="prefetch" href="/assets/js/48.50e1606d.js"><link rel="prefetch" href="/assets/js/49.063a844d.js"><link rel="prefetch" href="/assets/js/5.2243cca3.js"><link rel="prefetch" href="/assets/js/50.e4c1a728.js"><link rel="prefetch" href="/assets/js/51.18bcd297.js"><link rel="prefetch" href="/assets/js/52.e4260f89.js"><link rel="prefetch" href="/assets/js/53.f383f4aa.js"><link rel="prefetch" href="/assets/js/54.c1c06493.js"><link rel="prefetch" href="/assets/js/55.ea9b9b23.js"><link rel="prefetch" href="/assets/js/56.ebed527d.js"><link rel="prefetch" href="/assets/js/57.a5c2fad0.js"><link rel="prefetch" href="/assets/js/58.63f84d0e.js"><link rel="prefetch" href="/assets/js/59.cd6266c0.js"><link rel="prefetch" href="/assets/js/6.28ad9300.js"><link rel="prefetch" href="/assets/js/60.2bc1ae73.js"><link rel="prefetch" href="/assets/js/61.b9905de6.js"><link rel="prefetch" href="/assets/js/62.2c1ce7b5.js"><link rel="prefetch" href="/assets/js/63.affa3f74.js"><link rel="prefetch" href="/assets/js/64.f5bf4942.js"><link rel="prefetch" href="/assets/js/7.bb80117c.js"><link rel="prefetch" href="/assets/js/8.83805e76.js"><link rel="prefetch" href="/assets/js/9.c0f80b93.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.bd9d9870.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container" data-v-6f8f7dda><div data-v-6f8f7dda><div class="password-shadow password-wrapper-out" style="display:none;" data-v-f68096de data-v-6f8f7dda data-v-6f8f7dda><h3 class="title" data-v-f68096de>小小只的博客</h3> <p class="description" data-v-f68096de>vuepress-blog</p> <label id="box" class="inputBox" data-v-f68096de><input type="password" value="" data-v-f68096de> <span data-v-f68096de>Konck! Knock!</span> <button data-v-f68096de>OK</button></label> <div class="footer" data-v-f68096de><span data-v-f68096de><i class="iconfont reco-theme" data-v-f68096de></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-f68096de>vuePress-theme-reco</a></span> <span data-v-f68096de><i class="iconfont reco-copyright" data-v-f68096de></i> <a data-v-f68096de><span data-v-f68096de>Yrenjie</span>
+          
+        <!---->
+        2022
+      </a></span></div></div> <div class="hide" data-v-6f8f7dda><header class="navbar" data-v-6f8f7dda><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/logo.jpg" alt="小小只的博客" class="logo"> <span class="site-name">小小只的博客</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      分类
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/category2/" class="nav-link"><i class="undefined"></i>
+  category2
+</a></li><li class="dropdown-item"><!----> <a href="/categories/category1/" class="nav-link"><i class="undefined"></i>
+  category1
+</a></li><li class="dropdown-item"><!----> <a href="/categories/计算机基础/" class="nav-link"><i class="undefined"></i>
+  计算机基础
+</a></li><li class="dropdown-item"><!----> <a href="/categories/设计模式/" class="nav-link"><i class="undefined"></i>
+  设计模式
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Java基础/" class="nav-link"><i class="undefined"></i>
+  Java基础
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Collection/" class="nav-link"><i class="undefined"></i>
+  Collection
+</a></li><li class="dropdown-item"><!----> <a href="/categories/IO/" class="nav-link"><i class="undefined"></i>
+  IO
+</a></li><li class="dropdown-item"><!----> <a href="/categories/类加载机制/" class="nav-link"><i class="undefined"></i>
+  类加载机制
+</a></li><li class="dropdown-item"><!----> <a href="/categories/JVM内存结构/" class="nav-link"><i class="undefined"></i>
+  JVM内存结构
+</a></li><li class="dropdown-item"><!----> <a href="/categories/垃圾回收基础知识/" class="nav-link"><i class="undefined"></i>
+  垃圾回收基础知识
+</a></li><li class="dropdown-item"><!----> <a href="/categories/JVM/" class="nav-link"><i class="undefined"></i>
+  JVM
+</a></li><li class="dropdown-item"><!----> <a href="/categories/ASM/" class="nav-link"><i class="undefined"></i>
+  ASM
+</a></li><li class="dropdown-item"><!----> <a href="/categories/ThreadPool/" class="nav-link"><i class="undefined"></i>
+  ThreadPool
+</a></li><li class="dropdown-item"><!----> <a href="/categories/锁/" class="nav-link"><i class="undefined"></i>
+  锁
+</a></li><li class="dropdown-item"><!----> <a href="/categories/AQS/" class="nav-link"><i class="undefined"></i>
+  AQS
+</a></li><li class="dropdown-item"><!----> <a href="/categories/kafka/" class="nav-link"><i class="undefined"></i>
+  kafka
+</a></li><li class="dropdown-item"><!----> <a href="/categories/zookeeper/" class="nav-link"><i class="undefined"></i>
+  zookeeper
+</a></li><li class="dropdown-item"><!----> <a href="/categories/SpringMVC/" class="nav-link"><i class="undefined"></i>
+  SpringMVC
+</a></li><li class="dropdown-item"><!----> <a href="/categories/常用命令/" class="nav-link"><i class="undefined"></i>
+  常用命令
+</a></li><li class="dropdown-item"><!----> <a href="/categories/IOC/" class="nav-link"><i class="undefined"></i>
+  IOC
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Spring/" class="nav-link"><i class="undefined"></i>
+  Spring
+</a></li><li class="dropdown-item"><!----> <a href="/categories/SpringBoot/" class="nav-link"><i class="undefined"></i>
+  SpringBoot
+</a></li><li class="dropdown-item"><!----> <a href="/categories/starter/" class="nav-link"><i class="undefined"></i>
+  starter
+</a></li><li class="dropdown-item"><!----> <a href="/categories/vue/" class="nav-link"><i class="undefined"></i>
+  vue
+</a></li><li class="dropdown-item"><!----> <a href="/categories/vuepress/" class="nav-link"><i class="undefined"></i>
+  vuepress
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  标签
+</a></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  归档
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i></i>
+      计算机相关
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/docs/computer/base/" class="nav-link"><i class="undefined"></i>
+  计算机基础
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i></i>
+      后端技术栈
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/docs/java/base/" class="nav-link"><i class="undefined"></i>
+  Java
+</a></li><li class="dropdown-item"><!----> <a href="/docs/java/jvm/" class="nav-link"><i class="undefined"></i>
+  JVM相关
+</a></li><li class="dropdown-item"><!----> <a href="/docs/java/thread/" class="nav-link router-link-active"><i class="undefined"></i>
+  多线程
+</a></li><li class="dropdown-item"><!----> <a href="/docs/design/" class="nav-link"><i class="undefined"></i>
+  设计模式
+</a></li><li class="dropdown-item"><!----> <a href="/docs/sql/mysql/" class="nav-link"><i class="undefined"></i>
+  Mysql数据库
+</a></li><li class="dropdown-item"><!----> <a href="/docs/sql/redis/" class="nav-link"><i class="undefined"></i>
+  Redis
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i></i>
+      算法
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/docs/algorithm/data-structure/" class="nav-link"><i class="undefined"></i>
+  数据结构
+</a></li><li class="dropdown-item"><!----> <a href="/docs/algorithm/sort/" class="nav-link"><i class="undefined"></i>
+  排序
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i></i>
+      框架&amp;中间件
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/docs/spring/framework/" class="nav-link"><i class="undefined"></i>
+  Spring框架
+</a></li><li class="dropdown-item"><!----> <a href="/docs/spring/MVC/" class="nav-link"><i class="undefined"></i>
+  SpringMVC
+</a></li><li class="dropdown-item"><!----> <a href="/docs/spring/springboot/" class="nav-link"><i class="undefined"></i>
+  SpringBoot
+</a></li><li class="dropdown-item"><!----> <a href="/docs/middleware/mybatis/" class="nav-link"><i class="undefined"></i>
+  Mybatis
+</a></li><li class="dropdown-item"><!----> <a href="/docs/middleware/zookeeper/" class="nav-link"><i class="undefined"></i>
+  Zookeeper
+</a></li><li class="dropdown-item"><!----> <a href="/docs/middleware/kafka/" class="nav-link"><i class="undefined"></i>
+  Kafka
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-document"></i>
+      前端技术栈
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/docs/vue/" class="nav-link"><i class="undefined"></i>
+  Vue相关
+</a></li><li class="dropdown-item"><!----> <a href="/docs/vuepress/" class="nav-link"><i class="undefined"></i>
+  Vuepress博客
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-document"></i>
+      其他
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/docs/other/commands/" class="nav-link"><i class="undefined"></i>
+  常用命令
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-other"></i>
+      面试指南
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://javaguide.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  JavaGuide
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://snailclimb.gitee.io/javaguide/#/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  snailclimb
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-account"></i>
+      关于
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/fighting-Yrj?tab=repositories" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://gitee.com/yrenjie" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-mayun"></i>
+  Gitee
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-6f8f7dda></div> <aside class="sidebar" data-v-6f8f7dda><div class="personal-info-wrapper" data-v-cc06b9e8 data-v-6f8f7dda><img src="/avatar.jpg" alt="author-avatar" class="personal-img" data-v-cc06b9e8> <h3 class="name" data-v-cc06b9e8>
+    Yrenjie
+  </h3> <div class="num" data-v-cc06b9e8><div data-v-cc06b9e8><h3 data-v-cc06b9e8>38</h3> <h6 data-v-cc06b9e8>文章</h6></div> <div data-v-cc06b9e8><h3 data-v-cc06b9e8>35</h3> <h6 data-v-cc06b9e8>标签</h6></div></div> <ul class="social-links" data-v-cc06b9e8></ul> <hr data-v-cc06b9e8></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      分类
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/category2/" class="nav-link"><i class="undefined"></i>
+  category2
+</a></li><li class="dropdown-item"><!----> <a href="/categories/category1/" class="nav-link"><i class="undefined"></i>
+  category1
+</a></li><li class="dropdown-item"><!----> <a href="/categories/计算机基础/" class="nav-link"><i class="undefined"></i>
+  计算机基础
+</a></li><li class="dropdown-item"><!----> <a href="/categories/设计模式/" class="nav-link"><i class="undefined"></i>
+  设计模式
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Java基础/" class="nav-link"><i class="undefined"></i>
+  Java基础
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Collection/" class="nav-link"><i class="undefined"></i>
+  Collection
+</a></li><li class="dropdown-item"><!----> <a href="/categories/IO/" class="nav-link"><i class="undefined"></i>
+  IO
+</a></li><li class="dropdown-item"><!----> <a href="/categories/类加载机制/" class="nav-link"><i class="undefined"></i>
+  类加载机制
+</a></li><li class="dropdown-item"><!----> <a href="/categories/JVM内存结构/" class="nav-link"><i class="undefined"></i>
+  JVM内存结构
+</a></li><li class="dropdown-item"><!----> <a href="/categories/垃圾回收基础知识/" class="nav-link"><i class="undefined"></i>
+  垃圾回收基础知识
+</a></li><li class="dropdown-item"><!----> <a href="/categories/JVM/" class="nav-link"><i class="undefined"></i>
+  JVM
+</a></li><li class="dropdown-item"><!----> <a href="/categories/ASM/" class="nav-link"><i class="undefined"></i>
+  ASM
+</a></li><li class="dropdown-item"><!----> <a href="/categories/ThreadPool/" class="nav-link"><i class="undefined"></i>
+  ThreadPool
+</a></li><li class="dropdown-item"><!----> <a href="/categories/锁/" class="nav-link"><i class="undefined"></i>
+  锁
+</a></li><li class="dropdown-item"><!----> <a href="/categories/AQS/" class="nav-link"><i class="undefined"></i>
+  AQS
+</a></li><li class="dropdown-item"><!----> <a href="/categories/kafka/" class="nav-link"><i class="undefined"></i>
+  kafka
+</a></li><li class="dropdown-item"><!----> <a href="/categories/zookeeper/" class="nav-link"><i class="undefined"></i>
+  zookeeper
+</a></li><li class="dropdown-item"><!----> <a href="/categories/SpringMVC/" class="nav-link"><i class="undefined"></i>
+  SpringMVC
+</a></li><li class="dropdown-item"><!----> <a href="/categories/常用命令/" class="nav-link"><i class="undefined"></i>
+  常用命令
+</a></li><li class="dropdown-item"><!----> <a href="/categories/IOC/" class="nav-link"><i class="undefined"></i>
+  IOC
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Spring/" class="nav-link"><i class="undefined"></i>
+  Spring
+</a></li><li class="dropdown-item"><!----> <a href="/categories/SpringBoot/" class="nav-link"><i class="undefined"></i>
+  SpringBoot
+</a></li><li class="dropdown-item"><!----> <a href="/categories/starter/" class="nav-link"><i class="undefined"></i>
+  starter
+</a></li><li class="dropdown-item"><!----> <a href="/categories/vue/" class="nav-link"><i class="undefined"></i>
+  vue
+</a></li><li class="dropdown-item"><!----> <a href="/categories/vuepress/" class="nav-link"><i class="undefined"></i>
+  vuepress
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  标签
+</a></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  归档
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i></i>
+      计算机相关
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/docs/computer/base/" class="nav-link"><i class="undefined"></i>
+  计算机基础
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i></i>
+      后端技术栈
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/docs/java/base/" class="nav-link"><i class="undefined"></i>
+  Java
+</a></li><li class="dropdown-item"><!----> <a href="/docs/java/jvm/" class="nav-link"><i class="undefined"></i>
+  JVM相关
+</a></li><li class="dropdown-item"><!----> <a href="/docs/java/thread/" class="nav-link router-link-active"><i class="undefined"></i>
+  多线程
+</a></li><li class="dropdown-item"><!----> <a href="/docs/design/" class="nav-link"><i class="undefined"></i>
+  设计模式
+</a></li><li class="dropdown-item"><!----> <a href="/docs/sql/mysql/" class="nav-link"><i class="undefined"></i>
+  Mysql数据库
+</a></li><li class="dropdown-item"><!----> <a href="/docs/sql/redis/" class="nav-link"><i class="undefined"></i>
+  Redis
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i></i>
+      算法
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/docs/algorithm/data-structure/" class="nav-link"><i class="undefined"></i>
+  数据结构
+</a></li><li class="dropdown-item"><!----> <a href="/docs/algorithm/sort/" class="nav-link"><i class="undefined"></i>
+  排序
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i></i>
+      框架&amp;中间件
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/docs/spring/framework/" class="nav-link"><i class="undefined"></i>
+  Spring框架
+</a></li><li class="dropdown-item"><!----> <a href="/docs/spring/MVC/" class="nav-link"><i class="undefined"></i>
+  SpringMVC
+</a></li><li class="dropdown-item"><!----> <a href="/docs/spring/springboot/" class="nav-link"><i class="undefined"></i>
+  SpringBoot
+</a></li><li class="dropdown-item"><!----> <a href="/docs/middleware/mybatis/" class="nav-link"><i class="undefined"></i>
+  Mybatis
+</a></li><li class="dropdown-item"><!----> <a href="/docs/middleware/zookeeper/" class="nav-link"><i class="undefined"></i>
+  Zookeeper
+</a></li><li class="dropdown-item"><!----> <a href="/docs/middleware/kafka/" class="nav-link"><i class="undefined"></i>
+  Kafka
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-document"></i>
+      前端技术栈
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/docs/vue/" class="nav-link"><i class="undefined"></i>
+  Vue相关
+</a></li><li class="dropdown-item"><!----> <a href="/docs/vuepress/" class="nav-link"><i class="undefined"></i>
+  Vuepress博客
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-document"></i>
+      其他
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/docs/other/commands/" class="nav-link"><i class="undefined"></i>
+  常用命令
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-other"></i>
+      面试指南
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://javaguide.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  JavaGuide
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://snailclimb.gitee.io/javaguide/#/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  snailclimb
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-account"></i>
+      关于
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/fighting-Yrj?tab=repositories" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://gitee.com/yrenjie" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-mayun"></i>
+  Gitee
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div> <!----></nav> <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>多线程</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/docs/java/thread/1_lock.html" class="sidebar-link">锁的实现</a></li><li><a href="/docs/java/thread/2_threadpool.html" class="sidebar-link">线程池</a></li><li><a href="/docs/java/thread/3_AQS.html" aria-current="page" class="active sidebar-link">AQS</a></li></ul></section></li></ul> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-f68096de data-v-6f8f7dda><h3 class="title" data-v-f68096de>AQS</h3> <!----> <label id="box" class="inputBox" data-v-f68096de><input type="password" value="" data-v-f68096de> <span data-v-f68096de>Konck! Knock!</span> <button data-v-f68096de>OK</button></label> <div class="footer" data-v-f68096de><span data-v-f68096de><i class="iconfont reco-theme" data-v-f68096de></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-f68096de>vuePress-theme-reco</a></span> <span data-v-f68096de><i class="iconfont reco-copyright" data-v-f68096de></i> <a data-v-f68096de><span data-v-f68096de>Yrenjie</span>
+          
+        <!---->
+        2022
+      </a></span></div></div> <div data-v-6f8f7dda><div data-v-6f8f7dda><main class="page"><section style="display:;"><div class="page-title"><h1 class="title">AQS</h1> <div data-v-1e62957f><i class="iconfont reco-account" data-v-1e62957f><span data-v-1e62957f>Yrenjie</span></i> <i class="iconfont reco-date" data-v-1e62957f><span data-v-1e62957f>2022/4/29</span></i> <!----> <i class="tags iconfont reco-tag" data-v-1e62957f><span class="tag-item" data-v-1e62957f>Java</span><span class="tag-item" data-v-1e62957f>AQS</span><span class="tag-item" data-v-1e62957f>Atomic</span></i></div></div> <div class="theme-reco-content content__default"><h3 id="atomic原子类"><a href="#atomic原子类" class="header-anchor">#</a> Atomic原子类</h3> <h4 id="juc包的4类原子类"><a href="#juc包的4类原子类" class="header-anchor">#</a> JUC包的4类原子类：</h4> <ul><li><p><strong>基本类型</strong></p> <ul><li>AtomicInteger</li> <li>AtomicLong</li> <li>AtomicBoolean</li></ul></li> <li><p><strong>数组类型</strong></p> <ul><li>AtomicIntegerArray</li> <li>AtomicLongArray</li> <li>AtomicReferenceArray：引用类型数组原子类</li></ul></li> <li><p><strong>引用类型</strong></p> <ul><li>AtomicReference</li> <li>AtomicStampedReference：原子更新带有版本号的引用类型</li> <li>AtomicMarkableReference：原子更新带标记位的引用类型</li></ul></li> <li><p><strong>对象的属性修改类型</strong></p> <ul><li>AtomicIntegerFieldUpdater：原子更新整型字段的更新器</li> <li>AtomicLongFieldUpdater：原子更新长整型字段的更新器</li> <li>AtomicReferenceFieldUpdater：原子更新引用类型字段的更新器</li></ul></li></ul> <h4 id="讲讲atomicinteger"><a href="#讲讲atomicinteger" class="header-anchor">#</a> 讲讲AtomicInteger</h4> <h5 id="常用方法"><a href="#常用方法" class="header-anchor">#</a> 常用方法</h5> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">final</span> <span class="token keyword">int</span> <span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">//获取当前的值</span>
+<span class="token keyword">public</span> <span class="token keyword">final</span> <span class="token keyword">int</span> <span class="token function">getAndSet</span><span class="token punctuation">(</span><span class="token keyword">int</span> newValue<span class="token punctuation">)</span><span class="token comment">//获取当前的值，并设置新的值</span>
+<span class="token keyword">public</span> <span class="token keyword">final</span> <span class="token keyword">int</span> <span class="token function">getAndIncrement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token comment">//获取当前的值，并自增</span>
+<span class="token keyword">public</span> <span class="token keyword">final</span> <span class="token keyword">int</span> <span class="token function">getAndDecrement</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">//获取当前的值，并自减</span>
+<span class="token keyword">public</span> <span class="token keyword">final</span> <span class="token keyword">int</span> <span class="token function">getAndAdd</span><span class="token punctuation">(</span><span class="token keyword">int</span> delta<span class="token punctuation">)</span> <span class="token comment">//获取当前的值，并加上预期的值</span>
+<span class="token keyword">boolean</span> <span class="token function">compareAndSet</span><span class="token punctuation">(</span><span class="token keyword">int</span> expect<span class="token punctuation">,</span> <span class="token keyword">int</span> update<span class="token punctuation">)</span> <span class="token comment">//如果输入的数值等于预期值，则以原子方式将该值设置为输入值（update）</span>
+<span class="token keyword">public</span> <span class="token keyword">final</span> <span class="token keyword">void</span> <span class="token function">lazySet</span><span class="token punctuation">(</span><span class="token keyword">int</span> newValue<span class="token punctuation">)</span><span class="token comment">//最终设置为newValue,使用 lazySet 设置之后可能导致其他线程在之后的一小段时间内还是可以读到旧的值。</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><h5 id="实例"><a href="#实例" class="header-anchor">#</a> 实例</h5> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token keyword">private</span> <span class="token class-name">AtomicInteger</span> ai <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">AtomicInteger</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">increment</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    ai<span class="token punctuation">.</span><span class="token function">incrementAndGet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">getCount</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> ai<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><h5 id="实现原理"><a href="#实现原理" class="header-anchor">#</a> 实现原理</h5> <p>AtomicInteger 类主要利用 CAS (compare and swap) + volatile 和 native 方法来保证原子操作，从而避免 synchronized 的高开销，执行效率大为提升。</p> <h3 id="locksupport详解"><a href="#locksupport详解" class="header-anchor">#</a> LockSupport详解</h3> <h4 id="核心函数"><a href="#核心函数" class="header-anchor">#</a> 核心函数</h4> <ul><li>pack(boolean isAbsolute, long time)</li> <li>unpack(Thread thread)</li></ul> <h4 id="thread-sleep"><a href="#thread-sleep" class="header-anchor">#</a> Thread.sleep()</h4> <p>传入休眠时间，到时间后自动唤醒，期间不会释放锁</p> <h4 id="object-wait"><a href="#object-wait" class="header-anchor">#</a> Object.wait()</h4> <ul><li>不带时间参数：需要<code>Object.notity()</code>手动唤醒</li> <li>带时间参数：期间没有用Object.notity唤醒，则时间到了会自动唤醒；
+<ul><li>唤醒后立即获得锁</li> <li>唤醒后拿不到锁，则加入同步等待队列</li></ul></li></ul> <h4 id="condition-await"><a href="#condition-await" class="header-anchor">#</a> Condition.await()</h4> <p>与Object.wait()原理基本一致，不过wait底层由LockSupport.park()来实现阻塞线程</p> <h4 id="thread-sleep与locksupport-park区别"><a href="#thread-sleep与locksupport-park区别" class="header-anchor">#</a> Thread.sleep与LockSupport.park区别</h4> <ul><li>两者阻塞线程，都不会释放锁</li> <li>Thread.sleep无法手动唤醒，时间到了自动唤醒；LockSupport.park可以通过LockSupport.unpark唤醒</li> <li>Thread.sleep向上抛异常；LockSupport.park不会抛异常</li> <li>Thread.sleep本身实现就是通过底层native实现；LockSupport.park是通过Unsafe实现，Unsafe通过底层native实现</li></ul> <h4 id="object-wait与locksupport-park区别"><a href="#object-wait与locksupport-park区别" class="header-anchor">#</a> Object.wait与LockSupport.park区别</h4> <ul><li>Object.wait只能在sychronized代码块中执行；LockSupport.park可以在任意位置</li> <li>Object.wait向上抛出异常，LockSupport.park不需要抛异常</li> <li>Object.wait不带超时的方法，需要调用Object.notity唤醒，后续不一定继续执行线程的内容；LockSupport.park不带超时的方法，需要调用LockSupport.unpark方法唤醒，后续一定继续执行线程的内容</li></ul> <h3 id="aqs"><a href="#aqs" class="header-anchor">#</a> AQS</h3> <h4 id="核心思想"><a href="#核心思想" class="header-anchor">#</a> 核心思想</h4> <p>当被请求的共享资源空闲中，那么当前线程设置为有效线程，同时将资源设置为锁定状态，这时其他线程过来请求共享资源时，发现资源被占用了，那么请求就会被放到CLH队列中进行阻塞，后续通过唤醒机制来唤醒分配请求。</p> <p><img src="https://raw.githubusercontent.com/fighting-Yrj/blog-img/main/AQS.png" alt=""></p> <p>AQS通过int成员变量来表示同步状态，通过内置的 FIFO 队列来完成获取资源线程的排队工作。AQS 使用 CAS 对该同步状态进行原子操作实现对其值的修改。</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token keyword">private</span> <span class="token keyword">volatile</span> <span class="token keyword">int</span> state<span class="token punctuation">;</span> 
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>状态信息通过 protected 类型的 getState，setState，compareAndSetState 进行操作</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token comment">//返回同步状态的当前值</span>
+<span class="token keyword">protected</span> <span class="token keyword">final</span> <span class="token keyword">int</span> <span class="token function">getState</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> state<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">//设置同步状态的值</span>
+<span class="token keyword">protected</span> <span class="token keyword">final</span> <span class="token keyword">void</span> <span class="token function">setState</span><span class="token punctuation">(</span><span class="token keyword">int</span> newState<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    state <span class="token operator">=</span> newState<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">//原子地（CAS操作）将同步状态值设置为给定值update如果当前同步状态的值等于expect（期望值）</span>
+<span class="token keyword">protected</span> <span class="token keyword">final</span> <span class="token keyword">boolean</span> <span class="token function">compareAndSetState</span><span class="token punctuation">(</span><span class="token keyword">int</span> expect<span class="token punctuation">,</span> <span class="token keyword">int</span> update<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> unsafe<span class="token punctuation">.</span><span class="token function">compareAndSwapInt</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> stateOffset<span class="token punctuation">,</span> expect<span class="token punctuation">,</span> update<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><h4 id="aqs对资源的共享方式"><a href="#aqs对资源的共享方式" class="header-anchor">#</a> AQS对资源的共享方式</h4> <ul><li>Exclusive（独占）</li> <li>Share（共享）</li></ul> <p>自定义同步器在实现时只需要实现共享资源 state 的获取与释放方式即可，至于具体线程等待队列的维护（如获取资源失败入队/唤醒出队等），AQS 已经在顶层实现好了。</p> <h4 id="aqs底层使用了模板方法模式"><a href="#aqs底层使用了模板方法模式" class="header-anchor">#</a> AQS底层使用了模板方法模式</h4> <p><strong>AQS 使用了模板方法模式，自定义同步器时需要重写下面几个 AQS 提供的钩子方法：</strong></p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token keyword">protected</span> <span class="token keyword">boolean</span> <span class="token function">tryAcquire</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span><span class="token comment">//独占方式。尝试获取资源，成功则返回true，失败则返回false。</span>
+<span class="token keyword">protected</span> <span class="token keyword">boolean</span> <span class="token function">tryRelease</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span><span class="token comment">//独占方式。尝试释放资源，成功则返回true，失败则返回false。</span>
+<span class="token keyword">protected</span> <span class="token keyword">int</span> <span class="token function">tryAcquireShared</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span><span class="token comment">//共享方式。尝试获取资源。负数表示失败；0表示成功，但没有剩余可用资源；正数表示成功，且有剩余资源。</span>
+<span class="token keyword">protected</span> <span class="token keyword">boolean</span> <span class="token function">tryReleaseShared</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span><span class="token comment">//共享方式。尝试释放资源，成功则返回true，失败则返回false。</span>
+<span class="token keyword">protected</span> <span class="token keyword">boolean</span> <span class="token function">isHeldExclusively</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token comment">//该线程是否正在独占资源。只有用到condition才需要去实现它。</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><h4 id="completablefuture使用实例"><a href="#completablefuture使用实例" class="header-anchor">#</a> CompletableFuture使用实例</h4> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token comment">//文件夹位置</span>
+<span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> filePaths <span class="token operator">=</span> <span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">asList</span><span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span>
+<span class="token comment">// 异步处理所有文件</span>
+<span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">CompletableFuture</span><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span><span class="token punctuation">&gt;</span></span> fileFutures <span class="token operator">=</span> filePaths<span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>filePath <span class="token operator">-&gt;</span> <span class="token function">doSomeThing</span><span class="token punctuation">(</span>filePath<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">collect</span><span class="token punctuation">(</span><span class="token class-name">Collectors</span><span class="token punctuation">.</span><span class="token function">toList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 将他们合并起来</span>
+<span class="token class-name">CompletableFuture</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Void</span><span class="token punctuation">&gt;</span></span> allFutures <span class="token operator">=</span> <span class="token class-name">CompletableFuture</span><span class="token punctuation">.</span><span class="token function">allOf</span><span class="token punctuation">(</span>
+    fileFutures<span class="token punctuation">.</span><span class="token function">toArray</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">CompletableFuture</span><span class="token punctuation">[</span>fileFutures<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><h3 id="questions"><a href="#questions" class="header-anchor">#</a> Questions</h3> <h4 id="_1-为什么aqs底层使用虚拟双向队列"><a href="#_1-为什么aqs底层使用虚拟双向队列" class="header-anchor">#</a> 1.为什么AQS底层使用虚拟双向队列</h4> <p><code>prev</code>和<code>next</code>指针主要是**<code>中断和唤醒后续阻塞线程</code>**时需要用到</p> <ul><li>中断：用于在**<code>AQS#acquireInterruptibly(int arg)</code><strong>获取锁的过程中处理中断信号，其中调用了</strong>cancelAcquire(Node node)<strong>负责将被中断的线程节点从AQS同步队列中</strong>移除**。单向链表从中间删除一个节点效率较低。</li> <li>唤醒：在CLH的prev基础上增加了next。AQS维护了next指针，以便活跃线程释放锁后主动唤醒后续阻塞线程去竞争锁</li></ul></div></section> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated: </span> <span class="time">2022/12/27 下午4:35:04</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev"><a href="/docs/java/thread/2_threadpool.html" class="prev">
+          线程池
+        </a></span> <!----></p></div> <div class="comments-wrapper"><!----></div></main></div> <!----></div> <ul class="sub-sidebar sub-sidebar-wrapper" style="width:12rem;" data-v-6986a797 data-v-6f8f7dda><li class="level-3" data-v-6986a797><a href="/docs/java/thread/3_AQS.html#atomic原子类" class="sidebar-link reco-side-atomic原子类" data-v-6986a797>Atomic原子类</a></li><li class="level-3" data-v-6986a797><a href="/docs/java/thread/3_AQS.html#locksupport详解" class="sidebar-link reco-side-locksupport详解" data-v-6986a797>LockSupport详解</a></li><li class="level-3" data-v-6986a797><a href="/docs/java/thread/3_AQS.html#aqs" class="sidebar-link reco-side-aqs" data-v-6986a797>AQS</a></li><li class="level-3" data-v-6986a797><a href="/docs/java/thread/3_AQS.html#questions" class="sidebar-link reco-side-questions" data-v-6986a797>Questions</a></li></ul></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div><div class="kanbanniang" data-v-5775ee02><div class="banniang-container" style="display:;" data-v-5775ee02><div class="messageBox" style="right:68px;bottom:290px;display:none;" data-v-5775ee02>
+      欢迎来到我的博客
+    </div> <div class="operation" style="right:90px;bottom:40px;display:;" data-v-5775ee02><i class="kbnfont kbn-ban-home ban-home" data-v-5775ee02></i> <i class="kbnfont kbn-ban-message message" data-v-5775ee02></i> <i class="kbnfont kbn-ban-close close" data-v-5775ee02></i> <a target="_blank" href="https://vuepress-theme-reco.recoluan.com/views/plugins/kanbanniang.html" data-v-5775ee02><i class="kbnfont kbn-ban-info info" data-v-5775ee02></i></a> <i class="kbnfont kbn-ban-theme skin" style="display:;" data-v-5775ee02></i></div> <canvas id="banniang" width="260px" height="320" class="live2d" style="right:90px;bottom:-20px;opacity:0.9;" data-v-5775ee02></canvas></div> <div class="showBanNiang" style="display:none;" data-v-5775ee02>
+    看板娘
+  </div></div><!----><div></div><!----><div class="RibbonAnimation"></div><div class="Sakura" data-v-248d85d6><canvas id="canvas_sakura" style="z-index:-1;" data-v-248d85d6></canvas></div></div></div>
+    <script src="/assets/js/app.cc8e6958.js" defer></script><script src="/assets/js/3.ff5b5364.js" defer></script><script src="/assets/js/1.5d50350e.js" defer></script><script src="/assets/js/38.6ce04fe4.js" defer></script>
+  </body>
+</html>

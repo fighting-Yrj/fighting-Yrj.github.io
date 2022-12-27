@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>zookeeper | 小小只的博客</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" href="/favicon.ico">
+    <script language="javascript" type="text/javascript" src="/js/MouseClickEffect.js">
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?b0aae218897fa9d8a9f76e9a77e0b3c6";
+          var s = document.getElementsByTagName("script")[0]; 
+          s.parentNode.insertBefore(hm, s);
+        })();
+      </script>
+    <meta name="description" content="vuepress-blog">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    
+    <link rel="preload" href="/assets/css/0.styles.bd9d9870.css" as="style"><link rel="preload" href="/assets/js/app.cc8e6958.js" as="script"><link rel="preload" href="/assets/js/3.ff5b5364.js" as="script"><link rel="preload" href="/assets/js/1.5d50350e.js" as="script"><link rel="preload" href="/assets/js/43.4a2a7b8c.js" as="script"><link rel="prefetch" href="/assets/js/10.4f4d04d4.js"><link rel="prefetch" href="/assets/js/11.95d13980.js"><link rel="prefetch" href="/assets/js/12.86b438f7.js"><link rel="prefetch" href="/assets/js/13.80022b42.js"><link rel="prefetch" href="/assets/js/14.4454afae.js"><link rel="prefetch" href="/assets/js/15.e5619e78.js"><link rel="prefetch" href="/assets/js/16.848622fb.js"><link rel="prefetch" href="/assets/js/17.9c4e8bec.js"><link rel="prefetch" href="/assets/js/18.d27a2564.js"><link rel="prefetch" href="/assets/js/19.66f903c2.js"><link rel="prefetch" href="/assets/js/20.a173e37e.js"><link rel="prefetch" href="/assets/js/21.e43cc6d0.js"><link rel="prefetch" href="/assets/js/22.3d6d1df0.js"><link rel="prefetch" href="/assets/js/23.a1e79dc3.js"><link rel="prefetch" href="/assets/js/24.791d9be1.js"><link rel="prefetch" href="/assets/js/25.e96cc46c.js"><link rel="prefetch" href="/assets/js/26.c1dd7331.js"><link rel="prefetch" href="/assets/js/27.45f656e4.js"><link rel="prefetch" href="/assets/js/28.41db4d25.js"><link rel="prefetch" href="/assets/js/29.d1d24a55.js"><link rel="prefetch" href="/assets/js/30.eb7c47ce.js"><link rel="prefetch" href="/assets/js/31.43beac7e.js"><link rel="prefetch" href="/assets/js/32.b634807b.js"><link rel="prefetch" href="/assets/js/33.bb2d16e1.js"><link rel="prefetch" href="/assets/js/34.390440f1.js"><link rel="prefetch" href="/assets/js/35.7c643fda.js"><link rel="prefetch" href="/assets/js/36.371b8934.js"><link rel="prefetch" href="/assets/js/37.d88d19f7.js"><link rel="prefetch" href="/assets/js/38.6ce04fe4.js"><link rel="prefetch" href="/assets/js/39.9800fea4.js"><link rel="prefetch" href="/assets/js/4.42094546.js"><link rel="prefetch" href="/assets/js/40.ff12a0d9.js"><link rel="prefetch" href="/assets/js/41.46c1d6cb.js"><link rel="prefetch" href="/assets/js/42.02a0ac0f.js"><link rel="prefetch" href="/assets/js/44.c08d3779.js"><link rel="prefetch" href="/assets/js/45.90cac63f.js"><link rel="prefetch" href="/assets/js/46.bf17dbb5.js"><link rel="prefetch" href="/assets/js/47.70741e17.js"><link rel="prefetch" href="/assets/js/48.50e1606d.js"><link rel="prefetch" href="/assets/js/49.063a844d.js"><link rel="prefetch" href="/assets/js/5.2243cca3.js"><link rel="prefetch" href="/assets/js/50.e4c1a728.js"><link rel="prefetch" href="/assets/js/51.18bcd297.js"><link rel="prefetch" href="/assets/js/52.e4260f89.js"><link rel="prefetch" href="/assets/js/53.f383f4aa.js"><link rel="prefetch" href="/assets/js/54.c1c06493.js"><link rel="prefetch" href="/assets/js/55.ea9b9b23.js"><link rel="prefetch" href="/assets/js/56.ebed527d.js"><link rel="prefetch" href="/assets/js/57.a5c2fad0.js"><link rel="prefetch" href="/assets/js/58.63f84d0e.js"><link rel="prefetch" href="/assets/js/59.cd6266c0.js"><link rel="prefetch" href="/assets/js/6.28ad9300.js"><link rel="prefetch" href="/assets/js/60.2bc1ae73.js"><link rel="prefetch" href="/assets/js/61.b9905de6.js"><link rel="prefetch" href="/assets/js/62.2c1ce7b5.js"><link rel="prefetch" href="/assets/js/63.affa3f74.js"><link rel="prefetch" href="/assets/js/64.f5bf4942.js"><link rel="prefetch" href="/assets/js/7.bb80117c.js"><link rel="prefetch" href="/assets/js/8.83805e76.js"><link rel="prefetch" href="/assets/js/9.c0f80b93.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.bd9d9870.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container" data-v-6f8f7dda><div data-v-6f8f7dda><div class="password-shadow password-wrapper-out" style="display:none;" data-v-f68096de data-v-6f8f7dda data-v-6f8f7dda><h3 class="title" data-v-f68096de>小小只的博客</h3> <p class="description" data-v-f68096de>vuepress-blog</p> <label id="box" class="inputBox" data-v-f68096de><input type="password" value="" data-v-f68096de> <span data-v-f68096de>Konck! Knock!</span> <button data-v-f68096de>OK</button></label> <div class="footer" data-v-f68096de><span data-v-f68096de><i class="iconfont reco-theme" data-v-f68096de></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-f68096de>vuePress-theme-reco</a></span> <span data-v-f68096de><i class="iconfont reco-copyright" data-v-f68096de></i> <a data-v-f68096de><span data-v-f68096de>Yrenjie</span>
+          
+        <!---->
+        2022
+      </a></span></div></div> <div class="hide" data-v-6f8f7dda><header class="navbar" data-v-6f8f7dda><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/logo.jpg" alt="小小只的博客" class="logo"> <span class="site-name">小小只的博客</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      分类
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/category2/" class="nav-link"><i class="undefined"></i>
+  category2
+</a></li><li class="dropdown-item"><!----> <a href="/categories/category1/" class="nav-link"><i class="undefined"></i>
+  category1
+</a></li><li class="dropdown-item"><!----> <a href="/categories/计算机基础/" class="nav-link"><i class="undefined"></i>
+  计算机基础
+</a></li><li class="dropdown-item"><!----> <a href="/categories/设计模式/" class="nav-link"><i class="undefined"></i>
+  设计模式
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Java基础/" class="nav-link"><i class="undefined"></i>
+  Java基础
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Collection/" class="nav-link"><i class="undefined"></i>
+  Collection
+</a></li><li class="dropdown-item"><!----> <a href="/categories/IO/" class="nav-link"><i class="undefined"></i>
+  IO
+</a></li><li class="dropdown-item"><!----> <a href="/categories/类加载机制/" class="nav-link"><i class="undefined"></i>
+  类加载机制
+</a></li><li class="dropdown-item"><!----> <a href="/categories/JVM内存结构/" class="nav-link"><i class="undefined"></i>
+  JVM内存结构
+</a></li><li class="dropdown-item"><!----> <a href="/categories/垃圾回收基础知识/" class="nav-link"><i class="undefined"></i>
+  垃圾回收基础知识
+</a></li><li class="dropdown-item"><!----> <a href="/categories/JVM/" class="nav-link"><i class="undefined"></i>
+  JVM
+</a></li><li class="dropdown-item"><!----> <a href="/categories/ASM/" class="nav-link"><i class="undefined"></i>
+  ASM
+</a></li><li class="dropdown-item"><!----> <a href="/categories/ThreadPool/" class="nav-link"><i class="undefined"></i>
+  ThreadPool
+</a></li><li class="dropdown-item"><!----> <a href="/categories/锁/" class="nav-link"><i class="undefined"></i>
+  锁
+</a></li><li class="dropdown-item"><!----> <a href="/categories/AQS/" class="nav-link"><i class="undefined"></i>
+  AQS
+</a></li><li class="dropdown-item"><!----> <a href="/categories/kafka/" class="nav-link"><i class="undefined"></i>
+  kafka
+</a></li><li class="dropdown-item"><!----> <a href="/categories/zookeeper/" class="nav-link"><i class="undefined"></i>
+  zookeeper
+</a></li><li class="dropdown-item"><!----> <a href="/categories/SpringMVC/" class="nav-link"><i class="undefined"></i>
+  SpringMVC
+</a></li><li class="dropdown-item"><!----> <a href="/categories/常用命令/" class="nav-link"><i class="undefined"></i>
+  常用命令
+</a></li><li class="dropdown-item"><!----> <a href="/categories/IOC/" class="nav-link"><i class="undefined"></i>
+  IOC
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Spring/" class="nav-link"><i class="undefined"></i>
+  Spring
+</a></li><li class="dropdown-item"><!----> <a href="/categories/SpringBoot/" class="nav-link"><i class="undefined"></i>
+  SpringBoot
+</a></li><li class="dropdown-item"><!----> <a href="/categories/starter/" class="nav-link"><i class="undefined"></i>
+  starter
+</a></li><li class="dropdown-item"><!----> <a href="/categories/vue/" class="nav-link"><i class="undefined"></i>
+  vue
+</a></li><li class="dropdown-item"><!----> <a href="/categories/vuepress/" class="nav-link"><i class="undefined"></i>
+  vuepress
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  标签
+</a></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  归档
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i></i>
+      计算机相关
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/docs/computer/base/" class="nav-link"><i class="undefined"></i>
+  计算机基础
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i></i>
+      后端技术栈
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/docs/java/base/" class="nav-link"><i class="undefined"></i>
+  Java
+</a></li><li class="dropdown-item"><!----> <a href="/docs/java/jvm/" class="nav-link"><i class="undefined"></i>
+  JVM相关
+</a></li><li class="dropdown-item"><!----> <a href="/docs/java/thread/" class="nav-link"><i class="undefined"></i>
+  多线程
+</a></li><li class="dropdown-item"><!----> <a href="/docs/design/" class="nav-link"><i class="undefined"></i>
+  设计模式
+</a></li><li class="dropdown-item"><!----> <a href="/docs/sql/mysql/" class="nav-link"><i class="undefined"></i>
+  Mysql数据库
+</a></li><li class="dropdown-item"><!----> <a href="/docs/sql/redis/" class="nav-link"><i class="undefined"></i>
+  Redis
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i></i>
+      算法
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/docs/algorithm/data-structure/" class="nav-link"><i class="undefined"></i>
+  数据结构
+</a></li><li class="dropdown-item"><!----> <a href="/docs/algorithm/sort/" class="nav-link"><i class="undefined"></i>
+  排序
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i></i>
+      框架&amp;中间件
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/docs/spring/framework/" class="nav-link"><i class="undefined"></i>
+  Spring框架
+</a></li><li class="dropdown-item"><!----> <a href="/docs/spring/MVC/" class="nav-link"><i class="undefined"></i>
+  SpringMVC
+</a></li><li class="dropdown-item"><!----> <a href="/docs/spring/springboot/" class="nav-link"><i class="undefined"></i>
+  SpringBoot
+</a></li><li class="dropdown-item"><!----> <a href="/docs/middleware/mybatis/" class="nav-link"><i class="undefined"></i>
+  Mybatis
+</a></li><li class="dropdown-item"><!----> <a href="/docs/middleware/zookeeper/" class="nav-link router-link-active"><i class="undefined"></i>
+  Zookeeper
+</a></li><li class="dropdown-item"><!----> <a href="/docs/middleware/kafka/" class="nav-link"><i class="undefined"></i>
+  Kafka
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-document"></i>
+      前端技术栈
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/docs/vue/" class="nav-link"><i class="undefined"></i>
+  Vue相关
+</a></li><li class="dropdown-item"><!----> <a href="/docs/vuepress/" class="nav-link"><i class="undefined"></i>
+  Vuepress博客
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-document"></i>
+      其他
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/docs/other/commands/" class="nav-link"><i class="undefined"></i>
+  常用命令
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-other"></i>
+      面试指南
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://javaguide.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  JavaGuide
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://snailclimb.gitee.io/javaguide/#/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  snailclimb
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-account"></i>
+      关于
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/fighting-Yrj?tab=repositories" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://gitee.com/yrenjie" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-mayun"></i>
+  Gitee
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-6f8f7dda></div> <aside class="sidebar" data-v-6f8f7dda><div class="personal-info-wrapper" data-v-cc06b9e8 data-v-6f8f7dda><img src="/avatar.jpg" alt="author-avatar" class="personal-img" data-v-cc06b9e8> <h3 class="name" data-v-cc06b9e8>
+    Yrenjie
+  </h3> <div class="num" data-v-cc06b9e8><div data-v-cc06b9e8><h3 data-v-cc06b9e8>38</h3> <h6 data-v-cc06b9e8>文章</h6></div> <div data-v-cc06b9e8><h3 data-v-cc06b9e8>35</h3> <h6 data-v-cc06b9e8>标签</h6></div></div> <ul class="social-links" data-v-cc06b9e8></ul> <hr data-v-cc06b9e8></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      分类
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/category2/" class="nav-link"><i class="undefined"></i>
+  category2
+</a></li><li class="dropdown-item"><!----> <a href="/categories/category1/" class="nav-link"><i class="undefined"></i>
+  category1
+</a></li><li class="dropdown-item"><!----> <a href="/categories/计算机基础/" class="nav-link"><i class="undefined"></i>
+  计算机基础
+</a></li><li class="dropdown-item"><!----> <a href="/categories/设计模式/" class="nav-link"><i class="undefined"></i>
+  设计模式
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Java基础/" class="nav-link"><i class="undefined"></i>
+  Java基础
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Collection/" class="nav-link"><i class="undefined"></i>
+  Collection
+</a></li><li class="dropdown-item"><!----> <a href="/categories/IO/" class="nav-link"><i class="undefined"></i>
+  IO
+</a></li><li class="dropdown-item"><!----> <a href="/categories/类加载机制/" class="nav-link"><i class="undefined"></i>
+  类加载机制
+</a></li><li class="dropdown-item"><!----> <a href="/categories/JVM内存结构/" class="nav-link"><i class="undefined"></i>
+  JVM内存结构
+</a></li><li class="dropdown-item"><!----> <a href="/categories/垃圾回收基础知识/" class="nav-link"><i class="undefined"></i>
+  垃圾回收基础知识
+</a></li><li class="dropdown-item"><!----> <a href="/categories/JVM/" class="nav-link"><i class="undefined"></i>
+  JVM
+</a></li><li class="dropdown-item"><!----> <a href="/categories/ASM/" class="nav-link"><i class="undefined"></i>
+  ASM
+</a></li><li class="dropdown-item"><!----> <a href="/categories/ThreadPool/" class="nav-link"><i class="undefined"></i>
+  ThreadPool
+</a></li><li class="dropdown-item"><!----> <a href="/categories/锁/" class="nav-link"><i class="undefined"></i>
+  锁
+</a></li><li class="dropdown-item"><!----> <a href="/categories/AQS/" class="nav-link"><i class="undefined"></i>
+  AQS
+</a></li><li class="dropdown-item"><!----> <a href="/categories/kafka/" class="nav-link"><i class="undefined"></i>
+  kafka
+</a></li><li class="dropdown-item"><!----> <a href="/categories/zookeeper/" class="nav-link"><i class="undefined"></i>
+  zookeeper
+</a></li><li class="dropdown-item"><!----> <a href="/categories/SpringMVC/" class="nav-link"><i class="undefined"></i>
+  SpringMVC
+</a></li><li class="dropdown-item"><!----> <a href="/categories/常用命令/" class="nav-link"><i class="undefined"></i>
+  常用命令
+</a></li><li class="dropdown-item"><!----> <a href="/categories/IOC/" class="nav-link"><i class="undefined"></i>
+  IOC
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Spring/" class="nav-link"><i class="undefined"></i>
+  Spring
+</a></li><li class="dropdown-item"><!----> <a href="/categories/SpringBoot/" class="nav-link"><i class="undefined"></i>
+  SpringBoot
+</a></li><li class="dropdown-item"><!----> <a href="/categories/starter/" class="nav-link"><i class="undefined"></i>
+  starter
+</a></li><li class="dropdown-item"><!----> <a href="/categories/vue/" class="nav-link"><i class="undefined"></i>
+  vue
+</a></li><li class="dropdown-item"><!----> <a href="/categories/vuepress/" class="nav-link"><i class="undefined"></i>
+  vuepress
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  标签
+</a></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  归档
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i></i>
+      计算机相关
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/docs/computer/base/" class="nav-link"><i class="undefined"></i>
+  计算机基础
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i></i>
+      后端技术栈
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/docs/java/base/" class="nav-link"><i class="undefined"></i>
+  Java
+</a></li><li class="dropdown-item"><!----> <a href="/docs/java/jvm/" class="nav-link"><i class="undefined"></i>
+  JVM相关
+</a></li><li class="dropdown-item"><!----> <a href="/docs/java/thread/" class="nav-link"><i class="undefined"></i>
+  多线程
+</a></li><li class="dropdown-item"><!----> <a href="/docs/design/" class="nav-link"><i class="undefined"></i>
+  设计模式
+</a></li><li class="dropdown-item"><!----> <a href="/docs/sql/mysql/" class="nav-link"><i class="undefined"></i>
+  Mysql数据库
+</a></li><li class="dropdown-item"><!----> <a href="/docs/sql/redis/" class="nav-link"><i class="undefined"></i>
+  Redis
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i></i>
+      算法
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/docs/algorithm/data-structure/" class="nav-link"><i class="undefined"></i>
+  数据结构
+</a></li><li class="dropdown-item"><!----> <a href="/docs/algorithm/sort/" class="nav-link"><i class="undefined"></i>
+  排序
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i></i>
+      框架&amp;中间件
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/docs/spring/framework/" class="nav-link"><i class="undefined"></i>
+  Spring框架
+</a></li><li class="dropdown-item"><!----> <a href="/docs/spring/MVC/" class="nav-link"><i class="undefined"></i>
+  SpringMVC
+</a></li><li class="dropdown-item"><!----> <a href="/docs/spring/springboot/" class="nav-link"><i class="undefined"></i>
+  SpringBoot
+</a></li><li class="dropdown-item"><!----> <a href="/docs/middleware/mybatis/" class="nav-link"><i class="undefined"></i>
+  Mybatis
+</a></li><li class="dropdown-item"><!----> <a href="/docs/middleware/zookeeper/" class="nav-link router-link-active"><i class="undefined"></i>
+  Zookeeper
+</a></li><li class="dropdown-item"><!----> <a href="/docs/middleware/kafka/" class="nav-link"><i class="undefined"></i>
+  Kafka
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-document"></i>
+      前端技术栈
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/docs/vue/" class="nav-link"><i class="undefined"></i>
+  Vue相关
+</a></li><li class="dropdown-item"><!----> <a href="/docs/vuepress/" class="nav-link"><i class="undefined"></i>
+  Vuepress博客
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-document"></i>
+      其他
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/docs/other/commands/" class="nav-link"><i class="undefined"></i>
+  常用命令
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-other"></i>
+      面试指南
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://javaguide.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  JavaGuide
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://snailclimb.gitee.io/javaguide/#/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  snailclimb
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-account"></i>
+      关于
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/fighting-Yrj?tab=repositories" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://gitee.com/yrenjie" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-mayun"></i>
+  Gitee
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div> <!----></nav> <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>zookeeper</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/docs/middleware/zookeeper/1_zookeeper.html" aria-current="page" class="active sidebar-link">zookeeper</a></li><li><a href="/docs/middleware/zookeeper/2_zookeeper_install.html" class="sidebar-link">zookeeper集群搭建</a></li></ul></section></li></ul> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-f68096de data-v-6f8f7dda><h3 class="title" data-v-f68096de>zookeeper</h3> <!----> <label id="box" class="inputBox" data-v-f68096de><input type="password" value="" data-v-f68096de> <span data-v-f68096de>Konck! Knock!</span> <button data-v-f68096de>OK</button></label> <div class="footer" data-v-f68096de><span data-v-f68096de><i class="iconfont reco-theme" data-v-f68096de></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-f68096de>vuePress-theme-reco</a></span> <span data-v-f68096de><i class="iconfont reco-copyright" data-v-f68096de></i> <a data-v-f68096de><span data-v-f68096de>Yrenjie</span>
+          
+        <!---->
+        2022
+      </a></span></div></div> <div data-v-6f8f7dda><div data-v-6f8f7dda><main class="page"><section style="display:;"><div class="page-title"><h1 class="title">zookeeper</h1> <div data-v-1e62957f><i class="iconfont reco-account" data-v-1e62957f><span data-v-1e62957f>Yrenjie</span></i> <i class="iconfont reco-date" data-v-1e62957f><span data-v-1e62957f>2022/3/30</span></i> <!----> <i class="tags iconfont reco-tag" data-v-1e62957f><span class="tag-item" data-v-1e62957f>Java</span><span class="tag-item" data-v-1e62957f>zookeeper</span></i></div></div> <div class="theme-reco-content content__default"><h3 id="什么是zookeeper"><a href="#什么是zookeeper" class="header-anchor">#</a> 什么是zookeeper</h3> <p>zookeeper是一款为分布式架构提供服务的一款高可用软件，它为分布式计算提供了分布式配置、同步和注册服务；分布式应用可以基于它实现数据发布/订阅、负载均衡、命名服务、集群管理、master选举、分布式锁、分布式队列等功能。</p> <h3 id="zookeeper的数据结构"><a href="#zookeeper的数据结构" class="header-anchor">#</a> zookeeper的数据结构</h3> <p>zk是以key-value的形式存储的，用<code>/</code>分割路径元素的。</p> <p><img src="https://raw.githubusercontent.com/fighting-Yrj/blog-img/main/zknamespace.jpg" alt=""></p> <h3 id="cap理论"><a href="#cap理论" class="header-anchor">#</a> CAP理论</h3> <p><code>CAP</code>理论指对于分布式系统来说，仅能满足其中两点，即要嘛<code>CP</code>，要嘛<code>AP</code>：</p> <ul><li>C（一致性）</li> <li>A（可用性）</li> <li>P（分区容错性），分布式系统在网络分区时发生故障，仍需能够保证对外提供满足一致性、可用性的服务</li></ul> <p><code>zk</code>保证了<code>CP</code>，<code>eruka</code>保证了<code>AP</code>，<code>nacos</code>既可支持<code>CP</code>也可以支持<code>AP</code>。</p> <h3 id="base理论"><a href="#base理论" class="header-anchor">#</a> BASE理论</h3> <ul><li>基本可用，分布式故障时，允许损失部分可用性（服务降级）</li> <li>软引用，允许中间状态</li> <li>最终一致性</li></ul> <p><em><strong>备注</strong>：中间状态指的是不同的data replication（数据备份节点）之间的</em><em>数据更新出现延迟时</em><em>的</em><em>最终一致性</em>*</p> <p>BASE理论是对CAP理论中的一致性和可用性进行权衡的一个结果。<strong>核心思想：<strong>无法做到强一致性，但每个节点应用都应该根据自身的业务特点，达到最后的</strong>最终一致性</strong></p> <h3 id="znode数据结构"><a href="#znode数据结构" class="header-anchor">#</a> Znode数据结构</h3> <p><code>zk</code>中所有存储的数据都是由<code>znode</code>组成，并以key/value形式存储数据的。</p> <p><code>znode</code>的状态属性：</p> <table><thead><tr><th>key</th> <th>描述</th></tr></thead> <tbody><tr><td>cZxid</td> <td>创建节点的事务id</td></tr> <tr><td>ctime</td> <td>创建节点的时间</td></tr> <tr><td>mZxid</td> <td>修改节点的事务id</td></tr> <tr><td>mtime</td> <td>修改节点的时间</td></tr> <tr><td>pZid</td> <td>该节点的子节点列表最后一次修改的事务id；<strong>子节点列表变更才会触发，修改子节点内容不触发</strong></td></tr> <tr><td>cversion</td> <td>子节点版本号，子节点修改版本号+1</td></tr> <tr><td>dataversion</td> <td>数据版本号，数据每次修改版本号+1</td></tr> <tr><td>aclversion</td> <td>权限版本号</td></tr> <tr><td>ephemeralOwner</td> <td>创建该临时节点的会话的sessionId</td></tr> <tr><td>dataLength</td> <td>数据长度</td></tr> <tr><td>numChildren</td> <td>子节点数量</td></tr></tbody></table> <h3 id="session的基本原理"><a href="#session的基本原理" class="header-anchor">#</a> Session的基本原理</h3> <h4 id="session的创建"><a href="#session的创建" class="header-anchor">#</a> Session的创建</h4> <ul><li>SessionId：会话id</li> <li>Timeout：会话超时时间</li> <li>TickTime：下次会话超时时间</li> <li>isClosing：标记一个会话是否已经被关闭</li></ul> <h4 id="session的状态"><a href="#session的状态" class="header-anchor">#</a> Session的状态</h4> <ol><li>connecting：连接中</li> <li>connected：已连接</li> <li>closed：已关闭</li></ol> <h4 id="会话超时管理-分桶策略-会话激活"><a href="#会话超时管理-分桶策略-会话激活" class="header-anchor">#</a> 会话超时管理（分桶策略+会话激活）</h4> <p>zookeeper的leader服务运行期间会对会话超时检查，时间间隔是 ExpirationInterval，单位是毫秒，默认值是 tickTime，每隔 tickTime 进行一次会话超时检查。</p> <p>ExpirationTime 的计算方式：</p> <div class="language-sh line-numbers-mode"><pre class="language-sh"><code>ExpirationTime <span class="token operator">=</span> CurrentTime + SessionTimeout<span class="token punctuation">;</span>
+ExpirationTime <span class="token operator">=</span> <span class="token punctuation">(</span>ExpirationTime / ExpirationInterval + <span class="token number">1</span><span class="token punctuation">)</span> * ExpirationInterval<span class="token punctuation">;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>在zookeeper运行期间，客户端会在会话超时过期范围内向服务器<strong>发送请求或者ping</strong>，即<strong>心跳检测</strong>完成会话<strong>激活</strong>，从而来保持会话的有效性。</p> <p>激活流程：</p> <p><img src="https://raw.githubusercontent.com/fighting-Yrj/blog-img/main/sessionHeart.png" alt=""></p> <p>激活后进行会话迁移：</p> <p><img src="https://raw.githubusercontent.com/fighting-Yrj/blog-img/main/sessionExpirationTime.png" alt=""></p> <h3 id="acl权限控制"><a href="#acl权限控制" class="header-anchor">#</a> ACL权限控制</h3> <h4 id="acl命令行"><a href="#acl命令行" class="header-anchor">#</a> <code>ACL</code>命令行</h4> <ul><li><code>getAcl</code>：获取某个节点的权限信息</li> <li><code>setAcl</code>：授权某个节点的权限信息</li> <li><code>addauth</code>：输入认证授权信息；注册时输入明文密码，存储为加密</li></ul> <h4 id="acl权限"><a href="#acl权限" class="header-anchor">#</a> <code>ACL</code>权限</h4> <table><thead><tr><th>ACL权限</th> <th>ACL缩写</th> <th>允许的操作</th></tr></thead> <tbody><tr><td>CREATE</td> <td>c</td> <td>创建子节点</td></tr> <tr><td>DELETE</td> <td>d</td> <td>删除子节点</td></tr> <tr><td>READ</td> <td>r</td> <td>获取节点数据和子节点</td></tr> <tr><td>WRITE</td> <td>w</td> <td>设置的节点数据</td></tr> <tr><td>ADMIN</td> <td>a</td> <td>设置acl权限</td></tr></tbody></table> <h4 id="auth实例"><a href="#auth实例" class="header-anchor">#</a> <code>auth</code>实例</h4> <div class="language-sh line-numbers-mode"><pre class="language-sh"><code><span class="token comment"># 创建用户</span>
+addauth digest user1:123456
+<span class="token comment"># 授权</span>
+setAcl /test/child auth:user1:123456:cdrwa
+<span class="token comment"># 查看节点授权信息</span>
+getAcl /test/child
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><h4 id="digest实例"><a href="#digest实例" class="header-anchor">#</a> <code>digest</code>实例</h4> <p>退出当前用户，重新连接终端，digest 可用于账号密码登录和验证</p> <div class="language-sh line-numbers-mode"><pre class="language-sh"><code><span class="token comment"># 创建节点</span>
+create /test/child <span class="token number">1</span>
+<span class="token comment"># 设置权限</span>
+setAcl /test/child digest:user1:userpassword:cdra
+<span class="token comment"># 授权认证，用上一次创建的时候用户</span>
+addauth digest user1:123456
+<span class="token comment"># 查看节点授权信息</span>
+getAcl /test/child
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><h4 id="ip实例"><a href="#ip实例" class="header-anchor">#</a> <code>ip</code>实例</h4> <p>限制<code>ip</code>地址访问权限，设置<code>ip</code>102有权限，则101就没有权限访问</p> <div class="language- line-numbers-mode"><pre class="language-text"><code># 创建节点
+create /test/ip 0
+# 设置权限认证
+setAcl /test/ip ip:192.168.10.102:cdrwa
+# 获取节点数据
+get /test/ip
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><h3 id="数据同步"><a href="#数据同步" class="header-anchor">#</a> 数据同步</h3> <p><code>zookeeper</code>实现数据同步主要依赖<code>zab</code>协议，<code>zab</code>协议主要分为两个部分：</p> <ul><li>消息广播</li> <li>崩溃恢复</li></ul> <h4 id="消息广播"><a href="#消息广播" class="header-anchor">#</a> 消息广播</h4> <p><code>zookeeper</code>使用单一进行<code>leader</code>来接收和处理客户端请求，采用<code>zab</code>原子广播协议，向所有<code>follow</code>广播消息，超过半数的<code>follow</code>回应<code>ack</code>，<code>leader</code>会再次向所有<code>follow</code>发送<code>commit</code>消息，将此次提案提交，这个过程称为<code>2pc</code>事务提交。</p> <p><img src="https://raw.githubusercontent.com/fighting-Yrj/blog-img/main/zk-data-stream-async.png" alt=""></p> <h4 id="崩溃恢复"><a href="#崩溃恢复" class="header-anchor">#</a> 崩溃恢复</h4> <p>当<code>leader</code>服务崩溃或与半数以上<code>follow</code>失去通信，那么就会进入崩溃恢复模式，需要重新选举一个<code>leader</code>服务。</p> <p><code>zab</code>协议恢复模式策略：</p> <ul><li>选举<code>zxid</code>最大的节点作为<code>leader</code></li> <li>新<code>leader</code>将事务日志中未提交的消息进行处理</li></ul> <h3 id="leader选举原理"><a href="#leader选举原理" class="header-anchor">#</a> Leader选举原理</h3> <h4 id="选举状态"><a href="#选举状态" class="header-anchor">#</a> 选举状态</h4> <ul><li>LOOKING：竞选状态</li> <li>FOLLOWING：随从状态。同步leader状态，参与选举</li> <li>OBSERVING：观察状态。同步leader状态，参与不选举</li> <li>LEADING：领导状态</li></ul> <h4 id="选举重要参数"><a href="#选举重要参数" class="header-anchor">#</a> 选举重要参数</h4> <ol><li>myid：服务器id</li> <li>zxid：事务id，越大代表数据越新</li> <li>epoch-logicalclock：逻辑时钟，同一轮逻辑时钟相同，每投完一轮值增加</li></ol> <h4 id="选举权重"><a href="#选举权重" class="header-anchor">#</a> 选举权重</h4> <ol><li>优先比较epoch</li> <li>检查zxid</li> <li>zxid相同看myid</li></ol> <h3 id="分布式锁原理"><a href="#分布式锁原理" class="header-anchor">#</a> 分布式锁原理</h3> <h4 id="排他锁"><a href="#排他锁" class="header-anchor">#</a> 排他锁</h4> <p>根据<code>zk</code>的同级节点唯一性原则，c1客户端创建节点<code>/exclusive_lock/lock</code>；其他客户端创建该节点时会失败，这时可以给节点注册一个<code>watch</code>监听事件，当c1释放锁删除节点，watch监听到就可以去创建节点（争抢锁）</p> <h4 id="共享锁"><a href="#共享锁" class="header-anchor">#</a> 共享锁</h4> <ol><li>客户端创建临时节点</li> <li>获取所有子节点列表</li> <li>判断是否获得锁，对于读请求，比自己序号小的都是读请求或者没有比自己序号小的，就获得锁；对于写请求，自己不是最小序号，就不能获得到锁</li> <li>如果没有获得到共享锁，对于读请求，在向比自己小的<strong>最后一个写请求</strong>注册监听器；对于写请求，在向比自己小的<strong>最后一个请求</strong>注册监听器</li></ol></div></section> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated: </span> <span class="time">2022/12/27 下午4:35:04</span></div></footer> <div class="page-nav"><p class="inner"><!----> <span class="next"><a href="/docs/middleware/zookeeper/2_zookeeper_install.html">
+          zookeeper集群搭建
+        </a></span></p></div> <div class="comments-wrapper"><!----></div></main></div> <!----></div> <ul class="sub-sidebar sub-sidebar-wrapper" style="width:12rem;" data-v-6986a797 data-v-6f8f7dda><li class="level-3" data-v-6986a797><a href="/docs/middleware/zookeeper/1_zookeeper.html#什么是zookeeper" class="sidebar-link reco-side-什么是zookeeper" data-v-6986a797>什么是zookeeper</a></li><li class="level-3" data-v-6986a797><a href="/docs/middleware/zookeeper/1_zookeeper.html#zookeeper的数据结构" class="sidebar-link reco-side-zookeeper的数据结构" data-v-6986a797>zookeeper的数据结构</a></li><li class="level-3" data-v-6986a797><a href="/docs/middleware/zookeeper/1_zookeeper.html#cap理论" class="sidebar-link reco-side-cap理论" data-v-6986a797>CAP理论</a></li><li class="level-3" data-v-6986a797><a href="/docs/middleware/zookeeper/1_zookeeper.html#base理论" class="sidebar-link reco-side-base理论" data-v-6986a797>BASE理论</a></li><li class="level-3" data-v-6986a797><a href="/docs/middleware/zookeeper/1_zookeeper.html#znode数据结构" class="sidebar-link reco-side-znode数据结构" data-v-6986a797>Znode数据结构</a></li><li class="level-3" data-v-6986a797><a href="/docs/middleware/zookeeper/1_zookeeper.html#session的基本原理" class="sidebar-link reco-side-session的基本原理" data-v-6986a797>Session的基本原理</a></li><li class="level-3" data-v-6986a797><a href="/docs/middleware/zookeeper/1_zookeeper.html#acl权限控制" class="sidebar-link reco-side-acl权限控制" data-v-6986a797>ACL权限控制</a></li><li class="level-3" data-v-6986a797><a href="/docs/middleware/zookeeper/1_zookeeper.html#数据同步" class="sidebar-link reco-side-数据同步" data-v-6986a797>数据同步</a></li><li class="level-3" data-v-6986a797><a href="/docs/middleware/zookeeper/1_zookeeper.html#leader选举原理" class="sidebar-link reco-side-leader选举原理" data-v-6986a797>Leader选举原理</a></li><li class="level-3" data-v-6986a797><a href="/docs/middleware/zookeeper/1_zookeeper.html#分布式锁原理" class="sidebar-link reco-side-分布式锁原理" data-v-6986a797>分布式锁原理</a></li></ul></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div><div class="kanbanniang" data-v-5775ee02><div class="banniang-container" style="display:;" data-v-5775ee02><div class="messageBox" style="right:68px;bottom:290px;display:none;" data-v-5775ee02>
+      欢迎来到我的博客
+    </div> <div class="operation" style="right:90px;bottom:40px;display:;" data-v-5775ee02><i class="kbnfont kbn-ban-home ban-home" data-v-5775ee02></i> <i class="kbnfont kbn-ban-message message" data-v-5775ee02></i> <i class="kbnfont kbn-ban-close close" data-v-5775ee02></i> <a target="_blank" href="https://vuepress-theme-reco.recoluan.com/views/plugins/kanbanniang.html" data-v-5775ee02><i class="kbnfont kbn-ban-info info" data-v-5775ee02></i></a> <i class="kbnfont kbn-ban-theme skin" style="display:;" data-v-5775ee02></i></div> <canvas id="banniang" width="260px" height="320" class="live2d" style="right:90px;bottom:-20px;opacity:0.9;" data-v-5775ee02></canvas></div> <div class="showBanNiang" style="display:none;" data-v-5775ee02>
+    看板娘
+  </div></div><!----><div></div><!----><div class="RibbonAnimation"></div><div class="Sakura" data-v-248d85d6><canvas id="canvas_sakura" style="z-index:-1;" data-v-248d85d6></canvas></div></div></div>
+    <script src="/assets/js/app.cc8e6958.js" defer></script><script src="/assets/js/3.ff5b5364.js" defer></script><script src="/assets/js/1.5d50350e.js" defer></script><script src="/assets/js/43.4a2a7b8c.js" defer></script>
+  </body>
+</html>
